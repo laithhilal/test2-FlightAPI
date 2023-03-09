@@ -86,8 +86,6 @@ app.get('/direct-flights/:departure/:arrival', (req: Request, res: Response) => 
   }
 });
 
-
-
 // Endpoint to book a flight
 app.post('/book', (req: Request, res: Response) => {
   const { name, flightId, numSeats } = req.body;
@@ -177,8 +175,6 @@ app.get('/connection-flights/:departureDestination/:arrivalDestination', (req: R
     });
   });
 
-
-
   const formattedFlights = connectingFlights.map((flight) => {
     const departureRoute = {
       departureDestination: flight.route.departureDestination,
@@ -200,13 +196,9 @@ app.get('/connection-flights/:departureDestination/:arrivalDestination', (req: R
       },
     };
   });
-  
 
   res.json(formattedFlights);
 });
-
-
-
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
